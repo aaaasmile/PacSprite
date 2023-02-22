@@ -22,7 +22,7 @@ per avere un formato pac che funzioni nel solitario.
 
 ## Formato pac
 Vediamo il formato del file mazzo_piac.pac. Si parte con 100 bytes di descrizione. A seguire il timestamp.
-I quattro bytes del timestamp sono in LE32 (dal meno significativo) che nel file pac sono  0x72 0x9b 0x48 0x3f che sono il numero 0x3f489b72, una data del 2003.
+I quattro bytes del timestamp sono in LE32 (prima si scrive il byte meno significativo e poi via in crescendo) che nel file pac sono  0x72 0x9b 0x48 0x3f ossia il numero 0x3f489b72, una data del 2003.
 Poi c'è il numero delle animazioni in un byte 0x01.
 Poi seguono i bytes  0x50  0x01 che sono 0x0150 che è il width dell'immagine combinata con tutte le carte espresso in due byte sempre in LE32. Dopo segue l'altezza 0xa0 0x05, vale a dire 0x05a0. Poi altri due bytes per i frames 0x01 0x00 che mi da 0x0001. Poi siccome c'è un frame, vengono letti 2 bytes per frame.
 In questo caso sono 0xff 0xff. Poi parte l'immagine png che continua fino alla fine del file.
